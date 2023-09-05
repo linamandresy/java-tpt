@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Nouveau signalement</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container">
+    <ion-card>
+      <swiper-container>
+        <swiper-slide *ngFor="let img of image">
+          <ion-img [src]="img"></ion-img>
+        </swiper-slide>
+      </swiper-container>
+      <ion-card-content>
+        <ion-button (click)="takePicture()">Ajouter une image</ion-button>
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-list>
+      <ion-item>
+        <ion-input label="Titre du signalement" labelPlacement="floating" [(ngModel)]="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Sous Titre du signalement" labelPlacement="floating" [(ngModel)]="subTitle"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-textarea label="Description" labelPlacement="floating" [(ngModel)]="description"></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-button fill="outline" (click)="createSignalement()">Signaler</ion-button>
+  </div>
+</ion-content>

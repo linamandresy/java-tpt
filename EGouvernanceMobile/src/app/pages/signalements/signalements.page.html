@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Signalements</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container">
+    <ion-button fill="outline" routerLink="new" >Signaler</ion-button>
+      <app-swipable-card *ngFor="let sign of signalement"
+        [title]="sign.title" 
+        [subtitle]="sign.subtitle"
+        [description]="sign.description"
+        [url]="sign.images">
+      </app-swipable-card>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingText="Chargement en cours ..." loadingSpinner="bubbles"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

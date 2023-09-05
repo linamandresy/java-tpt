@@ -1,0 +1,19 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <div class="logo-login">
+      <ion-img src="assets/img/logo-gris1.png" alt="logo-republic-madagascar"></ion-img>
+    </div>
+  </ion-header>
+
+    <ion-list>
+      <ion-item>
+        <ion-input label="Nom d'utilisateur" labelPlacement="floating" type="text" [(ngModel)]="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Mot de passe" labelPlacement="floating" type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+
+      <ion-button fill="outline" (click)="login()">Se connecter</ion-button>
+    </ion-list>
+    <ion-text color="danger">{{error_message}}</ion-text>
+</ion-content>

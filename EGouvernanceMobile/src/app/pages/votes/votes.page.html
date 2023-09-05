@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Votes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container"  *ngIf="info">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{info.mere.libelleSondage}}</ion-card-title>
+        <ion-card-subtitle>{{info.mere.descriptionSondage}}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-list>
+          <ion-radio-group [(ngModel)]="idOption">
+            <ion-item *ngFor="let opt of info.options">
+              <ion-radio [value]="opt.id">{{opt.libelleOption}}</ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-card-content>
+
+      <ion-button (click)="voter()">Voter</ion-button>
+    </ion-card>
+  </div>
+</ion-content>
